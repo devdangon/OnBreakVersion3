@@ -12,20 +12,21 @@ namespace OnBreak.Dato
     using System;
     using System.Collections.Generic;
     
-    public partial class TipoEvento
+    public partial class TipoAmbientacion
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TipoEvento()
+        public TipoAmbientacion()
         {
-            this.ModalidadServicio = new HashSet<ModalidadServicio>();
+            this.Cenas = new HashSet<Cenas>();
+            this.Cocktail = new HashSet<Cocktail>();
         }
     
-        public int tipo_evento { get; set; }
-        public int asistente { get; set; }
-        public double valor_personal_adicional { get; set; }
-        public int valor_asistente_adicional { get; set; }
+        public int IdTipoAmbientacion { get; set; }
+        public string Descripcion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ModalidadServicio> ModalidadServicio { get; set; }
+        public virtual ICollection<Cenas> Cenas { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Cocktail> Cocktail { get; set; }
     }
 }

@@ -60,7 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OnBreak.Dato\OnBreak.Dato.csproj">
-      <Project>{9489db0d-fc54-48b6-b21a-d47fdd092263}</Project>
+      <Project>{e9775192-8427-45cc-94af-0eff07af2d70}</Project>
       <Name>OnBreak.Dato</Name>
     </ProjectReference>
   </ItemGroup>

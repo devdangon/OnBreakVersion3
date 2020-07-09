@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace OnBreak.Negocio
 {
     public class Contrato : ICRUD
-    {        
+    {
         public string rut_cliente { get; set; }
         public string numero_contrato { get; set; }
         public DateTime creacion_contrato { get; set; }
@@ -20,6 +20,12 @@ namespace OnBreak.Negocio
         public bool estado_vigencia_contrato { get; set; }
         public int tipo_evento { get; set; }
         public string Observaciones_contrato { get; set; }
+        //Nuevos atributos
+        public int personal { get; set; }
+        public string asistentes { get; set; }
+        public bool estado_contrato { get; set; }
+        public double valor_total_evento { get; set; }
+        public int IdModalidad { get; set; }
 
         public Contrato()
         {

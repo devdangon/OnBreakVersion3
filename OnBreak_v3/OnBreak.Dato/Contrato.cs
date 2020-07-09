@@ -14,6 +14,14 @@ namespace OnBreak.Dato
     
     public partial class Contrato
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Contrato()
+        {
+            this.Cenas = new HashSet<Cenas>();
+            this.Cocktail = new HashSet<Cocktail>();
+            this.Coffee = new HashSet<Coffee>();
+        }
+    
         public string rut_cliente { get; set; }
         public string numero_contrato { get; set; }
         public System.DateTime creacion_contrato { get; set; }
@@ -23,9 +31,20 @@ namespace OnBreak.Dato
         public string direccion_contrato { get; set; }
         public bool estado_vigencia_contrato { get; set; }
         public int tipo_evento { get; set; }
-        public string Observaciones_contrato { get; set; }
+        public string observaciones_contrato { get; set; }
+        public int personal_adicional { get; set; }
+        public int asistentes_adicional { get; set; }
+        public bool estado_contrato { get; set; }
+        public double valor_total_evento { get; set; }
+        public int IdModalidad { get; set; }
     
         public virtual Cliente Cliente { get; set; }
-        public virtual TipoEvento TipoEvento { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Cenas> Cenas { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Cocktail> Cocktail { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Coffee> Coffee { get; set; }
+        public virtual ModalidadServicio ModalidadServicio { get; set; }
     }
 }

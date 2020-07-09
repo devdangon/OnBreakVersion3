@@ -1,4 +1,4 @@
-﻿// La generación de código T4 está habilitada para el modelo 'C:\Users\dango\Source\Repos\carloslun\ON_BREAK_SOLUTION\ON_BREAK_SOLUTION\OnBreak.Dato\EDM.edmx'. 
+﻿// La generación de código T4 está habilitada para el modelo 'C:\Users\dango\source\repos\OnBreakVersion3\OnBreak_v3\OnBreak.Dato\MER.edmx'. 
 // Para habilitar la generación de código heredada, cambie el valor de la propiedad del diseñador 'Estrategia de generación de código'
 // por 'ObjectContext heredado'. Esta propiedad está disponible en la ventana Propiedades cuando se abre
 // el modelo en el diseñador.

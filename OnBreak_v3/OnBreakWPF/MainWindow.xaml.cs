@@ -668,7 +668,7 @@ namespace OnBreakWPF
                     chk_vigencia_adm_contrato.IsChecked = contrato.estado_vigencia_contrato;
                     VigenciaContrato(chk_vigencia_adm_contrato);
                     //txt_per_asistente_adm_contrato.Text =
-                    txt_observaciones_adm_cotrato.Text = contrato.Observaciones_contrato;
+                    txt_observaciones_adm_cotrato.Text = contrato.observaciones_contrato;
                     txt_rut_contrato.Text = contrato.rut_cliente;
                     mostrarGridContrato(dg_filtros_adm_contrato);
                 }
@@ -927,7 +927,7 @@ namespace OnBreakWPF
                 txt_numero_evento_contrato.Text = contrato.tipo_evento.ToString();
                 //*
                 //cmb_tipo_adm_contrato.SelectedIndex = contrato.tipo_evento; 
-                txt_observaciones_adm_cotrato.Text = contrato.Observaciones_contrato;
+                txt_observaciones_adm_cotrato.Text = contrato.observaciones_contrato;
                 txt_rut_contrato.Text = contrato.rut_cliente;
             }
             catch(Exception){ }
@@ -990,7 +990,7 @@ namespace OnBreakWPF
             //var rtn = auxiliarWindows.rtnRut.rut_cliente.ToString();
             //txt_rut_contrato.Text = rtn;
         }
-
+        /*
         private void Btn_rut_contrato_lis_contrato_Click(object sender, RoutedEventArgs e)
         {
             var tempcon = new Contrato();
@@ -1011,6 +1011,7 @@ namespace OnBreakWPF
                         foreach (var item in tempcon.ReadAll())
                         {
                             var num = item.tipo_evento;
+                            //var stri = tipoeventolist.Find(nu => nu.tipo_evento == num).nombre_evento;
                             var stri = tipoeventolist.Find(nu => nu.tipo_evento == num).nombre_evento;
                             if (stri.Equals("de 1 a 20"))
                             {
@@ -1037,7 +1038,7 @@ namespace OnBreakWPF
                         foreach (var item in tempcon.ReadAll())
                         {
                             var num = item.tipo_evento;
-                            var stri = tipoeventolist.Find(nu => nu.tipo_evento == num).nombre_evento;
+                            //var stri = tipoeventolist.Find(nu => nu.tipo_evento == num).nombre_evento;
                             if (stri.Equals("más de 50"))
                             {
                                 templist.Add(item);
@@ -1065,6 +1066,7 @@ namespace OnBreakWPF
 
             }
         }
+        */
 
         private bool isFiltro()
         {
@@ -1090,11 +1092,6 @@ namespace OnBreakWPF
                 lbl_error_tipo_contrato.Content = "Elija un tipo de evento";
             }
             */
-        }
-
-        private void Btn_rut_contrato_lis_contrato_Click_1(object sender, RoutedEventArgs e)
-        {
-            
         }
     }
 }

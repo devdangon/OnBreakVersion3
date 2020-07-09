@@ -10,18 +10,10 @@ namespace OnBreak.Negocio
 {
     public class TipoEvento : ICRUD
     {
-
-        
         public int tipo_evento { get; set; }
-        public String nombre_evento{ get; set; }
-        public int valor_base { get; set; }
-        public int personal_base { get; set; }
-        public int personal_adicional { get; set; }
-        public int asistente_adicional { get; set; }
-        public float valor_personal_adicional { get; set; }
+        public int asistente { get; set; }
+        public double valor_personal_adicional { get; set; }
         public int valor_asistente_adicional { get; set; }
-        public float valor_total_evento { get; set; }
-
 
 
         public TipoEvento()
@@ -37,14 +29,8 @@ namespace OnBreak.Negocio
         private void init()
         {
             tipo_evento = 0;
-            nombre_evento = String.Empty;
-            valor_base = 0;
-            personal_base = 0;
-            personal_adicional = 0;
-            asistente_adicional = 0;
             valor_personal_adicional = 0;
             valor_asistente_adicional = 0;
-            valor_total_evento = 0;
 
         }
 

@@ -22,10 +22,11 @@ namespace OnBreakWPF
     /// </summary>
     public partial class ConfigEventoWindows : Window
     {
-        //public static int id_evento;
         MainWindow main = null;
         OnBreak.Negocio.TipoEvento tipoEvento = new OnBreak.Negocio.TipoEvento();
-        
+        //modalidad evento:
+        ModalidadServicio modalidad = new ModalidadServicio();
+
 
         public ConfigEventoWindows(MainWindow main)
         {
@@ -165,15 +166,15 @@ namespace OnBreakWPF
                 txt_valor_asistente_adicional.Text = valorAsistenteAdicional + " UF";
                 txt_valor_total_evento.Text = valorTotalEvento.ToString() + " UF";
 
-                //set de propiedades del objeto tipoevento:            
-                tipoEvento.nombre_evento = evento;
-                tipoEvento.valor_base = valorBaseEvento;
-                tipoEvento.personal_base = valorPersonalBase;
-                tipoEvento.personal_adicional = personalAdicional;
-                tipoEvento.asistente_adicional = asistenteAdicional;
-                tipoEvento.valor_personal_adicional = valorPersonalAdicional;
-                tipoEvento.valor_asistente_adicional = valorAsistenteAdicional;
-                tipoEvento.valor_total_evento = valorTotalEvento;
+                //set de propiedades del objeto tipoevento:
+                modalidad.nombre_evento = evento;
+                modalidad.valor_base = valorBaseEvento;
+                modalidad.personal_base = valorPersonalBase;
+                //tipoEvento.personal_adicional = personalAdicional;
+                //tipoEvento.asistente_adicional = asistenteAdicional;
+                //tipoEvento.valor_personal_adicional = valorPersonalAdicional;
+                //tipoEvento.valor_asistente_adicional = valorAsistenteAdicional;
+                //tipoEvento.valor_total_evento = valorTotalEvento;
                 lbl_error_calcular_evento.Content = string.Empty;
                 //C_tipoEvento.Add(tipoEvento);
                 //dg_tipo_evento.ItemsSource = C_tipoEvento;
@@ -194,6 +195,7 @@ namespace OnBreakWPF
                 }
                 id_evento++;
                 tipoEvento.tipo_evento = id_evento;
+                /******/modalidad.IdModalidad = id_evento;//***Id Modalidad*** 
                 tipoEvento.Create();
                 main.txt_numero_evento_contrato.Text = tipoEvento.tipo_evento.ToString();
                 this.Close();
