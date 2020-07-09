@@ -8,7 +8,7 @@
         <EntityTypeShape EntityType="OnBreakModel.ActividadEmpresa" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
         <EntityTypeShape EntityType="OnBreakModel.Cliente" Width="2" PointX="3" PointY="5.125" IsExpanded="true" />
         <EntityTypeShape EntityType="OnBreakModel.Contrato" Width="1.5" PointX="5.25" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnBreakModel.ModalidadServicio" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnBreakModel.ModalidadServicio" Width="2.75" PointX="3" PointY="9.5" IsExpanded="true" />
         <EntityTypeShape EntityType="OnBreakModel.TipoAmbientacion" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="OnBreakModel.TipoEmpresa" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
         <EntityTypeShape EntityType="OnBreakModel.TipoEvento" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />

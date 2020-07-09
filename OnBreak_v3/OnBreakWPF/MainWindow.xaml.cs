@@ -27,8 +27,14 @@ namespace OnBreakWPF
     public partial class MainWindow : Window
     {
         //AuxiliarWindows auxiliarWindows = new AuxiliarWindows();
+        ConfigEventoWindows configEvento;
+        public Contrato contrato = new Contrato();
+        public ModalidadServicio modalidad = new ModalidadServicio();
+        public TipoEvento tipoEvento = new TipoEvento();
+       
         public MainWindow()
         {
+            
             InitializeComponent();
             txt_numero_evento_contrato.IsEnabled = false;
             //*cmb_tipo_adm_contrato.SelectedIndex = 0;
@@ -50,7 +56,7 @@ namespace OnBreakWPF
                 estado_vigencia_contrato = true,
                 fecha_hora_inicio = DateTime.Today,
                 fecha_hora_termino = DateTime.Today,
-                Observaciones_contrato = "Contrato a plazo figjo"
+                observaciones_contrato = "Contrato a plazo figjo"
             };
         }
         
@@ -596,7 +602,7 @@ namespace OnBreakWPF
         {
             //ElejirEvento();
             //txt_n_contrato_adm_contrato.Text = DateTime.Now.ToString("yyyyMMddHHmm");
-            Contrato contrato = new Contrato();
+            //Contrato contrato = new Contrato();
             Cliente cliente = new Cliente();
             contrato.numero_contrato = txt_n_contrato_adm_contrato.Text;
             if (validacionContrato() == true)
@@ -624,10 +630,17 @@ namespace OnBreakWPF
                         //ElejirEvento();
                         contrato.tipo_evento = int.Parse(txt_numero_evento_contrato.Text);
                         //*contrato.tipo_evento = cmb_tipo_adm_contrato.SelectedIndex;
-                        contrato.Observaciones_contrato = txt_observaciones_adm_cotrato.Text;
+                        contrato.observaciones_contrato = txt_observaciones_adm_cotrato.Text;
+
+                        //Poblamiento de entidades contrato, tipoEvento y ModalidadServicio:
+                        
+                        tipoEvento.Create();
+                        modalidad.Create();
                         contrato.Create();
+
                         limpiarCamposContrato();
                         mostrarGridContrato(dg_filtros_adm_contrato);
+                        MessageBox.Show("¡Contrato resgistrado exitosamente!","Registro de Contrato",MessageBoxButton.OK, MessageBoxImage.Asterisk);
                     }
                     else
                     {
@@ -727,7 +740,7 @@ namespace OnBreakWPF
                     }
                     //ElejirEvento();
                     contrato.tipo_evento = int.Parse(txt_numero_evento_contrato.Text); /*cmb_tipo_adm_contrato.SelectedIndex;*/
-                    contrato.Observaciones_contrato = txt_observaciones_adm_cotrato.Text;
+                    contrato.observaciones_contrato = txt_observaciones_adm_cotrato.Text;
                     contrato.Update();
                     mostrarGridContrato(dg_filtros_adm_contrato);
                     limpiarCamposContrato();
@@ -1076,10 +1089,14 @@ namespace OnBreakWPF
         }
 
         private void Btn_calcular_adm_contrato_Click(object sender, RoutedEventArgs e)
-        {
-            ConfigEventoWindows configEvento = new ConfigEventoWindows(main_window);
+        {            
+            tipoEvento = new TipoEvento();
+            //Contrato contratoTemp = new Contrato();
+            configEvento = new ConfigEventoWindows(main_window, tipoEvento, modalidad, contrato);
             configEvento.Show();
             this.Visibility = Visibility.Collapsed;
+            
+            
             /*
             if (cmb_tipo_adm_contrato.SelectedValue.ToString() != "seleccionar")
             {

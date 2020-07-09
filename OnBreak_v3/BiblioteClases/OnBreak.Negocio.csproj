@@ -55,6 +55,7 @@
     <Compile Include="Contrato.cs" />
     <Compile Include="ICRUD.cs" />
     <Compile Include="IVegetariana.cs" />
+    <Compile Include="ModalidadServicio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TipoEvento.cs" />
   </ItemGroup>

@@ -23,14 +23,19 @@ namespace OnBreakWPF
     public partial class ConfigEventoWindows : Window
     {
         MainWindow main = null;
-        OnBreak.Negocio.TipoEvento tipoEvento = new OnBreak.Negocio.TipoEvento();
+        //OnBreak.Negocio.TipoEvento tipoEvento = new OnBreak.Negocio.TipoEvento();
         //modalidad evento:
         ModalidadServicio modalidad = new ModalidadServicio();
+        //Contrato local
+        OnBreak.Negocio.Contrato localContrato;
 
 
-        public ConfigEventoWindows(MainWindow main)
+        public ConfigEventoWindows(MainWindow main, OnBreak.Negocio.TipoEvento tipoEvento, OnBreak.ModalidadServicio modalidad,
+            OnBreak.Negocio.Contrato contrato)
         {
             InitializeComponent();
+            //asignacion de contrato local
+            localContrato = contrato;
             //mostrar grid de evento:
             //MostrarEvento();
             //Agregar valores a combobox de eventos:
@@ -73,6 +78,7 @@ namespace OnBreakWPF
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             main.Visibility = Visibility.Visible;
+            //main.lbl_observaciones_adm_contrato.Content = main.contrato.valor_total_evento.ToString();
         }
         //agregar tipo de evento al combobox tipo:
         public void AgregarEventos()
@@ -112,7 +118,7 @@ namespace OnBreakWPF
                 asistenteAdicional = int.Parse(cmb_asist_adici_evento.SelectedValue.ToString());
                 valorAsistenteAdicional = int.Parse(cmb_asist_adici_evento.SelectedValue.ToString()) / 10;
 
-                //personal adicional:
+                //personal_adicional adicional:
                 personalAdicional = int.Parse(cmb_perso_adici_evento.SelectedValue.ToString());
 
                 if (personalAdicional == 0 || personalAdicional == 2 || personalAdicional == 3)
@@ -167,14 +173,25 @@ namespace OnBreakWPF
                 txt_valor_total_evento.Text = valorTotalEvento.ToString() + " UF";
 
                 //set de propiedades del objeto tipoevento:
-                modalidad.nombre_evento = evento;
-                modalidad.valor_base = valorBaseEvento;
-                modalidad.personal_base = valorPersonalBase;
-                //tipoEvento.personal_adicional = personalAdicional;
-                //tipoEvento.asistente_adicional = asistenteAdicional;
-                //tipoEvento.valor_personal_adicional = valorPersonalAdicional;
-                //tipoEvento.valor_asistente_adicional = valorAsistenteAdicional;
-                //tipoEvento.valor_total_evento = valorTotalEvento;
+                main.tipoEvento.valor_personal_adicional = valorPersonalAdicional;
+                main.tipoEvento.valor_asistente_adicional = valorAsistenteAdicional;
+
+                //set de prop del objeto modalidad:
+                /*
+                 * public int IdModalidad { get; set; }1
+                public string nombre_evento { get; set; }1
+                public double valor_base { get; set; }1
+                public int personal_base { get; set; }1
+                public int tipo_evento { get; set; }
+
+                 */
+                main.modalidad.personal_base = valorPersonalBase;
+                main.modalidad.nombre_evento = evento;
+                main.modalidad.valor_base = valorBaseEvento;
+
+                main.tipoEvento.valor_personal_adicional = valorPersonalAdicional;
+                main.tipoEvento.valor_asistente_adicional = valorAsistenteAdicional;
+                main.contrato.valor_total_evento = valorTotalEvento;
                 lbl_error_calcular_evento.Content = string.Empty;
                 //C_tipoEvento.Add(tipoEvento);
                 //dg_tipo_evento.ItemsSource = C_tipoEvento;
@@ -194,10 +211,12 @@ namespace OnBreakWPF
                     id_evento = i.tipo_evento;
                 }
                 id_evento++;
-                tipoEvento.tipo_evento = id_evento;
-                /******/modalidad.IdModalidad = id_evento;//***Id Modalidad*** 
-                tipoEvento.Create();
-                main.txt_numero_evento_contrato.Text = tipoEvento.tipo_evento.ToString();
+                main.tipoEvento.tipo_evento = id_evento;
+                //set de idModalidad y tipoevento clase ModalidadServicio:
+                main.modalidad.IdModalidad = main.tipoEvento.tipo_evento;
+                main.modalidad.tipo_evento = modalidad.IdModalidad;
+                //tipoEvento.Create();
+                main.txt_numero_evento_contrato.Text = main.tipoEvento.tipo_evento.ToString();
                 this.Close();
                 main.Visibility = Visibility.Visible;
                 main.btn_calcular_adm_contrato.Background = new SolidColorBrush(Color.FromArgb(255, 33, 223, 33));
@@ -205,12 +224,12 @@ namespace OnBreakWPF
             else
             {
                 lbl_error_calcular_evento.Content = "*Debes Calcular un evento";
-            }
+            }            
         }
 
         private void Btn_deshacer_evento_Click(object sender, RoutedEventArgs e)
         {
-            tipoEvento.Delete();
+            main.tipoEvento.Delete();
         }
 
         public void CleanControl()

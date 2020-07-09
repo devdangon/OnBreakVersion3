@@ -19,14 +19,20 @@ namespace OnBreak.Negocio
         public String direccion_contrato { get; set; }
         public bool estado_vigencia_contrato { get; set; }
         public int tipo_evento { get; set; }
-        public string Observaciones_contrato { get; set; }
+        public string observaciones_contrato { get; set; }
         //Nuevos atributos
-        public int personal { get; set; }
-        public string asistentes { get; set; }
+        public int personal_adicional { get; set; }
+        public string asistentes_adicional { get; set; }
         public bool estado_contrato { get; set; }
         public double valor_total_evento { get; set; }
         public int IdModalidad { get; set; }
-
+        /*
+        public int personal_adicional { get; set; }
+        public int asistentes_adicional { get; set; }
+        public bool estado_contrato { get; set; }
+        public double valor_total_evento { get; set; }
+        public int IdModalidad { get; set; }
+         */
         public Contrato()
         {
             init();
@@ -42,7 +48,7 @@ namespace OnBreak.Negocio
             direccion_contrato = String.Empty;
             estado_vigencia_contrato = true;
             tipo_evento = 0;
-            Observaciones_contrato = String.Empty;
+            observaciones_contrato = String.Empty;
            
         }
 
