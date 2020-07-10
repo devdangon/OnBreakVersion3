@@ -53,6 +53,7 @@
     <Compile Include="CoffeeBreak.cs" />
     <Compile Include="CommonBC.cs" />
     <Compile Include="Contrato.cs" />
+    <Compile Include="FactoryProducer.cs" />
     <Compile Include="ICRUD.cs" />
     <Compile Include="IVegetariana.cs" />
     <Compile Include="ModalidadServicio.cs" />
