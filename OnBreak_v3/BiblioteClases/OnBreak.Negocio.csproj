@@ -47,15 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbstractEvento.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="ClienteDataGrid.cs" />
-    <Compile Include="CoffeeBreak.cs" />
     <Compile Include="CommonBC.cs" />
     <Compile Include="Contrato.cs" />
     <Compile Include="FactoryProducer.cs" />
     <Compile Include="ICRUD.cs" />
-    <Compile Include="IVegetariana.cs" />
     <Compile Include="ModalidadServicio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TipoEvento.cs" />

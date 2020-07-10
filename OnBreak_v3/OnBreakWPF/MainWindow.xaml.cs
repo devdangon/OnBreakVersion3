@@ -1110,6 +1110,72 @@ namespace OnBreakWPF
             }
             */
         }
+
+        private void Btn_rut_contrato_lis_contrato_Click(object sender, RoutedEventArgs e)
+        {
+            var tempcon = new Contrato();
+            var templist = new List<Contrato>();
+
+
+
+            if (txt_rut_contrato_lis_contrato.Text.Equals(""))
+            {
+                if (isFiltro())
+                {
+                    if (chk_tipo_a.IsChecked.Equals(true))
+                    {
+                        foreach (var item in tempcon.ReadAll())
+                        {
+                            if (item.tipo_evento.Equals(1))
+                            {
+                                templist.Add(item);
+                            }
+                        }
+
+                    }
+                    if (chk_tipo_b.IsChecked.Equals(true))
+                    {
+                        foreach (var item in tempcon.ReadAll())
+                        {
+                            if (item.tipo_evento.Equals(2))
+                            {
+                                templist.Add(item);
+                            }
+                        }
+
+                    }
+                    if (chk_tipo_c.IsChecked.Equals(true))
+                    {
+                        foreach (var item in tempcon.ReadAll())
+                        {
+                            if (item.tipo_evento.Equals(3))
+                            {
+                                templist.Add(item);
+                            }
+                        }
+
+                    }
+
+                    dg_filtros_lis_contrato.ItemsSource = templist;
+                }
+                else
+                {
+                    dg_filtros_lis_contrato.ItemsSource = tempcon.ReadAll();
+
+                }
+            }
+            else
+            {
+                var dato = txt_rut_contrato_lis_contrato.Text;
+
+
+                dg_filtros_lis_contrato.ItemsSource = tempcon.ReadRut(dato);
+
+
+
+            }
+
+        }
     }
 }
 
