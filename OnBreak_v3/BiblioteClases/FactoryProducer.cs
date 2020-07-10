@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OnBreak
 {
-    class FactoryProducer
+   public class FactoryProducer
     {
         //Preparacion Factory
         public AbstractFactory getFactory(string factory)
@@ -32,12 +32,12 @@ namespace OnBreak
         }
     }
 
-    abstract class AbstractFactory
+    public abstract class AbstractFactory
     {
         abstract public AbstractEvento getAbstractEvento(string evento);
     }
 
-    abstract class AbstractEvento
+   public abstract class AbstractEvento
     {
         //Atributos Obligatorios
         public int Id { get; set; }
@@ -72,7 +72,7 @@ namespace OnBreak
     }
 
     //Factorys
-    class CoffeBreakFactory : AbstractFactory
+    public class CoffeBreakFactory : AbstractFactory
     {
         public override AbstractEvento getAbstractEvento(string evento)
         {
@@ -103,7 +103,7 @@ namespace OnBreak
     }
 
     //Clases concretas
-    class CoffeBreak : AbstractEvento
+    public class CoffeBreak : AbstractEvento
     {
         public CoffeBreak()
         {
@@ -131,8 +131,57 @@ namespace OnBreak
             }
             if (this.Asistentes > 50)
             {
+                var cantidad = this.Asistentes - 50;
+                var añadido = 0f;
+                if(cantidad < 20)
+                {
+                    añadido = 2f;
+                }
+                if (cantidad > 20 && cantidad < 40)
+                {
+                    añadido = 4f;
+                }
+                if (cantidad > 40 && cantidad < 60)
+                {
+                    añadido = 6f;
+                }
+                if (cantidad > 60 && cantidad < 80)
+                {
+                    añadido = 8f;
+                }
+                if (cantidad > 80 && cantidad < 100)
+                {
+                    añadido = 10f;
+                }
+                if (cantidad > 100 && cantidad < 120)
+                {
+                    añadido = 12f;
+                }
+                if (cantidad > 120 && cantidad < 140)
+                {
+                    añadido = 14f;
+                }
+                if (cantidad > 140 && cantidad < 160)
+                {
+                    añadido = 16f;
+                }
+                if (cantidad > 160 && cantidad < 180)
+                {
+                    añadido = 18f;
+                }
+                if (cantidad > 180 && cantidad < 200)
+                {
+                    añadido = 20f;
+                }
+                if (cantidad > 200 && cantidad < 220)
+                {
+                    añadido = 22f;
+                }
+
+
                 //Implementar este metodo
-                return 0f;
+                //this.Asistentes - 50
+                return 5f + añadido;
             }
             return 0f;
         }
@@ -176,7 +225,7 @@ namespace OnBreak
 
 
 
-    class CenaFactory : AbstractFactory
+    public class CenaFactory : AbstractFactory
     {
         public override AbstractEvento getAbstractEvento(string evento)
         {
@@ -203,7 +252,7 @@ namespace OnBreak
             return null;
         }
     }
-    class Cena : AbstractEvento
+   public class Cena : AbstractEvento
     {
         public Cena()
         {
@@ -215,8 +264,8 @@ namespace OnBreak
 
         public override float getValorTotalEvento()
         {
-            //return this.ValorBase + recargoAsistentes() + recargoPersonal();
-            return this.ValorBase + recargoAsistentes() + recargoPersonal() + recargoAmbientacion() + recargoMusicaAmbiental() + recargoLocal();
+            return this.ValorBase + recargoAsistentes() + recargoPersonal();
+            //return this.ValorBase + recargoAsistentes() + recargoPersonal() + recargoAmbientacion() + recargoMusicaAmbiental() + recargoLocal();
         }
 
         public override float recargoAmbientacion()
@@ -298,7 +347,7 @@ namespace OnBreak
         }
     }
 
-    class CocktailFactory : AbstractFactory
+   public class CocktailFactory : AbstractFactory
     {
         public override AbstractEvento getAbstractEvento(string evento)
         {
@@ -324,7 +373,7 @@ namespace OnBreak
         }
     }
 
-    class Cocktail : AbstractEvento
+   public class Cocktail : AbstractEvento
     {
         public Cocktail(string nombre)
         {
@@ -332,8 +381,8 @@ namespace OnBreak
         }
         public override float getValorTotalEvento()
         {
-            //return this.ValorBase + recargoAsistentes() + recargoPersonal();
-            return this.ValorBase + recargoAsistentes() + recargoPersonal() + recargoAmbientacion() + recargoMusicaAmbiental();
+            return this.ValorBase + recargoAsistentes() + recargoPersonal();
+            //return this.ValorBase + recargoAsistentes() + recargoPersonal() + recargoAmbientacion() + recargoMusicaAmbiental();
         }
 
         public override float recargoAmbientacion()
@@ -362,8 +411,57 @@ namespace OnBreak
             }
             if (this.Asistentes > 50)
             {
+                var cantidad = this.Asistentes - 50;
+                var añadido = 0f;
+                if (cantidad < 20)
+                {
+                    añadido = 2f;
+                }
+                if (cantidad > 20 && cantidad < 40)
+                {
+                    añadido = 4f;
+                }
+                if (cantidad > 40 && cantidad < 60)
+                {
+                    añadido = 6f;
+                }
+                if (cantidad > 60 && cantidad < 80)
+                {
+                    añadido = 8f;
+                }
+                if (cantidad > 80 && cantidad < 100)
+                {
+                    añadido = 10f;
+                }
+                if (cantidad > 100 && cantidad < 120)
+                {
+                    añadido = 12f;
+                }
+                if (cantidad > 120 && cantidad < 140)
+                {
+                    añadido = 14f;
+                }
+                if (cantidad > 140 && cantidad < 160)
+                {
+                    añadido = 16f;
+                }
+                if (cantidad > 160 && cantidad < 180)
+                {
+                    añadido = 18f;
+                }
+                if (cantidad > 180 && cantidad < 200)
+                {
+                    añadido = 20f;
+                }
+                if (cantidad > 200 && cantidad < 220)
+                {
+                    añadido = 22f;
+                }
+
+
                 //Implementar este metodo
-                return 0;
+                //this.Asistentes - 50
+                return 5f + añadido;
             }
             return 0f;
         }

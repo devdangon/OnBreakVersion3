@@ -22,12 +22,15 @@ namespace OnBreakWPF
     /// </summary>
     public partial class ConfigEventoWindows : Window
     {
+        
         MainWindow main = null;
         //OnBreak.Negocio.TipoEvento tipoEvento = new OnBreak.Negocio.TipoEvento();
         //modalidad evento:
         ModalidadServicio modalidad = new ModalidadServicio();
         //Contrato local
         OnBreak.Negocio.Contrato localContrato;
+
+        OnBreak.FactoryProducer factoryProducer = new OnBreak.FactoryProducer();
 
 
         public ConfigEventoWindows(MainWindow main, OnBreak.Negocio.TipoEvento tipoEvento, OnBreak.ModalidadServicio modalidad,
@@ -85,9 +88,13 @@ namespace OnBreakWPF
         {
             List<string> eventos = new List<String>();
             eventos.Add("seleccionar");
-            eventos.Add("de 1 a 20");
-            eventos.Add("de 21 a 50");
-            eventos.Add("más de 50");
+            eventos.Add("LightBreak");
+            eventos.Add("DayBreak");
+            eventos.Add("JournalBreak");
+            eventos.Add("Ejecutiva");
+            eventos.Add("Celebracion");
+            eventos.Add("QuickCocktail");
+            eventos.Add("AmbientCocktail");
 
             foreach (string item in eventos)
             {
@@ -98,83 +105,135 @@ namespace OnBreakWPF
 
         private void Btn_calcular_evento_Click(object sender, RoutedEventArgs e)
         {
+            //Creacion de als fabricas
+            var factoryCoffe = factoryProducer.getFactory("CoffeBreak");
+            var factoryCena = factoryProducer.getFactory("Cena");
+            var factoryCocktail = factoryProducer.getFactory("Cocktail");
+
+            var TipoEventos = factoryCoffe.getAbstractEvento("LightBreak");
+
+
             if (cmb_tipo_evento.SelectedIndex != -1 && cmb_tipo_evento.SelectedIndex != 0)
             {
                 var C_tipoEvento = new List<OnBreak.Negocio.TipoEvento>();
 
-                int asistenteAdicional = 0;
-                int personalAdicional = 0;
-                int personalBase = 0;
-                int valorBaseEvento = 0;
-                int valorAsistenteBase = 0;
-                int valorPersonalBase = 0;
-                int valorAsistenteAdicional = 0;
-                float valorPersonalAdicional = 0;
-                float valorTotalEvento = 0;
+                //int asistenteAdicional = 0;
+                //int personalAdicional = 0;
+                //int personalBase = 0;
+                //int valorBaseEvento = 0;
+                //int valorAsistenteBase = 0;
+                //int valorPersonalBase = 0;
+                //int valorAsistenteAdicional = 0;
+                //float valorPersonalAdicional = 0;
+                //float valorTotalEvento = 0;
 
                 string evento = cmb_tipo_evento.SelectedValue.ToString();
+                if (evento.Equals("LightBreak"))
+                {
+                    TipoEventos = factoryCoffe.getAbstractEvento("LightBreak");
+                }
+                if (evento.Equals("DayBreak"))
+                {
+                    TipoEventos = factoryCoffe.getAbstractEvento("DayBreak");
+                }
+                if (evento.Equals("JournalBreak"))
+                {
+                    TipoEventos = factoryCoffe.getAbstractEvento("JournalBreak");
+                }
+                if (evento.Equals("Ejecutiva"))
+                {
+                    TipoEventos = factoryCena.getAbstractEvento("Ejecutiva");
+                }
+                if (evento.Equals("Celebracion"))
+                {
+                    TipoEventos = factoryCena.getAbstractEvento("Celebracion");
+                }
+                if (evento.Equals("QuickCocktail"))
+                {
+                    TipoEventos = factoryCocktail.getAbstractEvento("QuickCocktail");
+                }
+                if (evento.Equals("AmbientCocktail"))
+                {
+                    TipoEventos = factoryCocktail.getAbstractEvento("AmbientCocktail");
+                }
+
+
+
+                TipoEventos.Asistentes = int.Parse(cmb_asist_adici_evento.SelectedValue.ToString());
+                TipoEventos.PersonalAdicional = int.Parse(cmb_perso_adici_evento.SelectedValue.ToString());
+
+
 
                 //Asistentes adicionales:
-                asistenteAdicional = int.Parse(cmb_asist_adici_evento.SelectedValue.ToString());
-                valorAsistenteAdicional = int.Parse(cmb_asist_adici_evento.SelectedValue.ToString()) / 10;
+                //asistenteAdicional = int.Parse(cmb_asist_adici_evento.SelectedValue.ToString());--
+                //valorAsistenteAdicional = int.Parse(cmb_asist_adici_evento.SelectedValue.ToString()) / 10;--
 
                 //personal_adicional adicional:
-                personalAdicional = int.Parse(cmb_perso_adici_evento.SelectedValue.ToString());
+                //personalAdicional = int.Parse(cmb_perso_adici_evento.SelectedValue.ToString());--
 
-                if (personalAdicional == 0 || personalAdicional == 2 || personalAdicional == 3)
-                {
-                    valorPersonalAdicional = float.Parse(personalAdicional.ToString());
-                }
-                if (personalAdicional == 4)
-                {
-                    valorPersonalAdicional = 3.5f;
-                }
-                if (personalAdicional > 4)
-                {
-                    int adicional = 4;
-                    valorPersonalAdicional = personalAdicional;
-                    valorPersonalAdicional -= 4;
-                    valorPersonalAdicional *= 0.5f;
-                    valorPersonalAdicional += 3.5f;
-                }
+                //if (personalAdicional == 0 || personalAdicional == 2 || personalAdicional == 3)--
+                //{
+                //    valorPersonalAdicional = float.Parse(personalAdicional.ToString());--
+                //}
+                //if (personalAdicional == 4)--
+                //{
+                //    valorPersonalAdicional = 3.5f;--
+                //}
+                //if (personalAdicional > 4)--
+                //{
+                //    int adicional = 4;--
+                //    valorPersonalAdicional = personalAdicional;--
+                //    valorPersonalAdicional -= 4;--
+                //    valorPersonalAdicional *= 0.5f;--
+                //    valorPersonalAdicional += 3.5f;--
+                //}
                 //tipo de evento:
-                if (evento == "de 1 a 20")
-                {
-                    valorPersonalBase = 2;
-                    valorAsistenteBase = 3;
+                //if (evento == "de 1 a 20")
+                //{
+                //    valorPersonalBase = 2;
+                //    valorAsistenteBase = 3;
 
-                }
-                if (evento == "de 21 a 50" || evento == "más de 50")
-                {
-                    valorPersonalBase = 3;
-                    valorAsistenteBase = 5;
-                }
-                if (cmb_perso_adici_evento.SelectedIndex == 0)
-                {
-                    personalAdicional = 0;
+                //}
+                //if (evento == "de 21 a 50" || evento == "más de 50")
+                //{
+                //    valorPersonalBase = 3;
+                //    valorAsistenteBase = 5;
+                //}
+                //if (cmb_perso_adici_evento.SelectedIndex == 0)
+                //{
+                //    personalAdicional = 0;
 
-                }
-                else
-                {
-                    personalAdicional = int.Parse(cmb_perso_adici_evento.SelectedValue.ToString());
-                }
+                //}
+                //else
+                //{
+                //    personalAdicional = int.Parse(cmb_perso_adici_evento.SelectedValue.ToString());
+                //}
 
 
                 //calculo total del evento:
-                valorBaseEvento = valorAsistenteBase + valorPersonalBase;
-                valorTotalEvento = valorBaseEvento + valorAsistenteAdicional + valorPersonalAdicional;
+                //valorBaseEvento = valorAsistenteBase + valorPersonalBase;
+                //valorTotalEvento = valorBaseEvento + valorAsistenteAdicional + valorPersonalAdicional;
 
                 //salida de datos:            
-                txt_valor_base_evento.Text = valorBaseEvento + " UF";
-                txt_valor_asistente_base.Text = valorAsistenteBase + " UF";
-                txt_personal_base_evento.Text = valorPersonalBase + " UF";
-                txt_valor_personal_adicional.Text = valorPersonalAdicional + " UF";
-                txt_valor_asistente_adicional.Text = valorAsistenteAdicional + " UF";
-                txt_valor_total_evento.Text = valorTotalEvento.ToString() + " UF";
+                //txt_valor_base_evento.Text = valorBaseEvento + " UF";
+                txt_valor_base_evento.Text = TipoEventos.ValorBase + " UF";
+                //txt_valor_asistente_base.Text = valorAsistenteBase + " UF";
+                //txt_valor_asistente_base.Text = valorAsistenteBase + " UF";
+                //txt_personal_base_evento.Text = valorPersonalBase + " UF";
+                txt_personal_base_evento.Text = TipoEventos.PersonalBase + "";
+                txt_valor_personal_adicional.Text = TipoEventos.recargoPersonal() + " UF";
+                //txt_valor_personal_adicional.Text = valorPersonalAdicional + " UF";
+                txt_valor_asistente_adicional.Text = TipoEventos.recargoAsistentes() + " UF";
+                //txt_valor_asistente_adicional.Text = valorAsistenteAdicional + " UF";
+                txt_valor_total_evento.Text = TipoEventos.getValorTotalEvento().ToString() + " UF";
+                //txt_valor_total_evento.Text = valorTotalEvento.ToString() + " UF";
 
                 //set de propiedades del objeto tipoevento:
-                main.tipoEvento.valor_personal_adicional = valorPersonalAdicional;
-                main.tipoEvento.valor_asistente_adicional = valorAsistenteAdicional;
+                //main.tipoEvento.valor_personal_adicional = valorPersonalAdicional;
+                main.tipoEvento.valor_personal_adicional = TipoEventos.recargoPersonal();
+
+                //main.tipoEvento.valor_asistente_adicional = valorAsistenteAdicional;
+                main.tipoEvento.valor_asistente_adicional = (int)TipoEventos.recargoAsistentes();
 
                 //set de prop del objeto modalidad:
                 /*
@@ -185,13 +244,28 @@ namespace OnBreakWPF
                 public int tipo_evento { get; set; }
 
                  */
-                main.modalidad.personal_base = valorPersonalBase;
-                main.modalidad.nombre_evento = evento;
-                main.modalidad.valor_base = valorBaseEvento;
+                //main.modalidad.personal_base = valorPersonalBase;
+                main.modalidad.personal_base = TipoEventos.PersonalBase;
 
-                main.tipoEvento.valor_personal_adicional = valorPersonalAdicional;
-                main.tipoEvento.valor_asistente_adicional = valorAsistenteAdicional;
-                main.contrato.valor_total_evento = valorTotalEvento;
+                //main.modalidad.nombre_evento = evento;
+                main.modalidad.nombre_evento = TipoEventos.NombreEvento;
+
+                //main.modalidad.valor_base = valorBaseEvento;
+                main.modalidad.valor_base = TipoEventos.ValorBase;
+
+
+
+
+                //main.tipoEvento.valor_personal_adicional = valorPersonalAdicional;
+                main.tipoEvento.valor_personal_adicional = TipoEventos.recargoPersonal();
+
+                //main.tipoEvento.valor_asistente_adicional = valorAsistenteAdicional;
+                main.tipoEvento.valor_asistente_adicional = (int) TipoEventos.recargoAsistentes();
+
+                //main.contrato.valor_total_evento = valorTotalEvento;
+                main.contrato.valor_total_evento = TipoEventos.getValorTotalEvento();
+
+                lbl_error_calcular_evento.Content = string.Empty;
                 lbl_error_calcular_evento.Content = string.Empty;
                 //C_tipoEvento.Add(tipoEvento);
                 //dg_tipo_evento.ItemsSource = C_tipoEvento;
