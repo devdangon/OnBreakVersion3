@@ -38,7 +38,7 @@
                         <GradientStop Color="#FF8198B1" Offset="0.315"/>
                     </LinearGradientBrush>
                 </Grid.Background>
-                <Rectangle HorizontalAlignment="Left" Height="419" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="422">
+                <Rectangle x:Name="rec_regis_clien" HorizontalAlignment="Left" Height="419" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="422">
                     <Rectangle.Fill>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="Black" Offset="0"/>
@@ -89,9 +89,10 @@
                 <Button x:Name="btn_limpiar_administra" Content="Limpiar" HorizontalAlignment="Left" Height="38" Margin="22,364,0,0" VerticalAlignment="Top" Width="85" Click="Btn_limpiar_administra_Click" Foreground="White" Background="#FF3769DC" BorderBrush="#FF0031FF" FontWeight="Bold" FontSize="14"/>
                 <Label x:Name="lbl_error_buscar_cliente" Content="" HorizontalAlignment="Left" Margin="523,17,0,0" VerticalAlignment="Top" Foreground="White"/>
                 <Image HorizontalAlignment="Left" Height="136" Margin="961,324,0,0" VerticalAlignment="Top" Width="136" Source="imagenes/white_logo_transparent_background.png" Stretch="UniformToFill" RenderTransformOrigin="0.716,0.56"/>
+                <Button x:Name="btn_alto_contraste" Content="Alto Contraste&#xD;&#xA;" HorizontalAlignment="Left" Margin="11,464,0,0" VerticalAlignment="Top" Width="75" Click="Btn_alto_contraste_Click" Background="#FF0A0A0A" Foreground="#FF1B24F3" BorderBrush="White"/>
             </Grid>
         </TabItem>
-        <TabItem Header="Listado de Clientes">
+        <TabItem x:Name="rec_listado_clientes" Header="Listado de Clientes">
             <TabItem.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                     <GradientStop Color="#FFF0F0F0" Offset="0"/>
@@ -153,6 +154,10 @@
                 </LinearGradientBrush>
             </TabItem.Background>
             <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="293*"/>
+                    <ColumnDefinition Width="841*"/>
+                </Grid.ColumnDefinitions>
                 <Grid.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="Black" Offset="0"/>
@@ -164,7 +169,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Rectangle HorizontalAlignment="Left" Height="419" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="422">
+                <Rectangle x:Name="rec_list_contra" HorizontalAlignment="Left" Height="419" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="422" Grid.ColumnSpan="2">
                     <Rectangle.Fill>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="Black" Offset="0"/>
@@ -173,7 +178,7 @@
                         </LinearGradientBrush>
                     </Rectangle.Fill>
                 </Rectangle>
-                <DataGrid x:Name="dg_filtros_lis_contrato" HorizontalAlignment="Left" Height="275" Margin="486,49,0,0" VerticalAlignment="Top" Width="596">
+                <DataGrid x:Name="dg_filtros_lis_contrato" HorizontalAlignment="Left" Height="275" Margin="193,49,0,0" VerticalAlignment="Top" Width="596" Grid.Column="1">
                     <DataGrid.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="Black" Offset="0"/>
@@ -194,12 +199,12 @@
                 </Label>
                 <TextBox x:Name="txt_rut_contrato_lis_contrato" HorizontalAlignment="Left" Height="31" Margin="107,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" />
                 <Label x:Name="lbl_Rut_Administracion_Copy" Content="Rut" HorizontalAlignment="Left" Height="30" Margin="-563,167,0,0" VerticalAlignment="Top" Width="105"/>
-                <Button x:Name="btn_rut_contrato_lis_contrato" Content="Buscar" HorizontalAlignment="Left" Height="20" Margin="282,131,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.497,0.52" Background="#FF3769DC" BorderBrush="#FF0031FF" Foreground="White" Click="Btn_rut_contrato_lis_contrato_Click"/>
+                <Button x:Name="btn_rut_contrato_lis_contrato" Content="Buscar" HorizontalAlignment="Left" Height="20" Margin="282,131,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.497,0.52" Background="#FF3769DC" BorderBrush="#FF0031FF" Foreground="White" Click="Btn_rut_contrato_lis_contrato_Click" Grid.ColumnSpan="2"/>
                 <CheckBox x:Name="chk_tipo_a" Content="1 A 20" HorizontalAlignment="Left" Height="30" Margin="107,249,0,0" VerticalAlignment="Top" Width="150" Foreground="White"/>
                 <CheckBox x:Name="chk_tipo_b" Content="21 A 50" HorizontalAlignment="Left" Margin="107,296,0,0" VerticalAlignment="Top" Height="25" Width="150" Foreground="White"/>
                 <CheckBox x:Name="chk_tipo_c" Content="MÁS DE 50" HorizontalAlignment="Left" Height="25" Margin="107,340,0,0" VerticalAlignment="Top" Width="150" Foreground="White"/>
                 <Label x:Name="lbl_tipo_lis_contrato" Content="TIPO&#xA;" HorizontalAlignment="Left" Height="31" Margin="107,200,0,0" VerticalAlignment="Top" Width="140" RenderTransformOrigin="0.497,0.555" Foreground="White"/>
-                <Image HorizontalAlignment="Left" Height="136" Margin="961,324,0,-1.6" VerticalAlignment="Top" Width="136" Source="imagenes/white_logo_transparent_background.png" Stretch="UniformToFill" RenderTransformOrigin="0.716,0.56"/>
+                <Image HorizontalAlignment="Left" Height="136" Margin="668,324,0,0" VerticalAlignment="Top" Width="136" Source="imagenes/white_logo_transparent_background.png" Stretch="UniformToFill" RenderTransformOrigin="0.716,0.56" Grid.Column="1"/>
             </Grid>
         </TabItem>
         <TabItem x:Name="tab_admin_contratos" Header="Administración de Contratos" Initialized="Tab_admin_contratos_Initialized">
@@ -222,7 +227,7 @@
                     </LinearGradientBrush>
                 </Grid.Background>
                 <Grid HorizontalAlignment="Left" Height="84" Margin="22,246,0,0" VerticalAlignment="Top" Width="375" Background="Black"/>
-                <Rectangle HorizontalAlignment="Left" Height="493" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="437">
+                <Rectangle x:Name="rec_amd_contra" HorizontalAlignment="Left" Height="493" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="437">
                     <Rectangle.Fill>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="Black" Offset="0"/>

@@ -1176,6 +1176,183 @@ namespace OnBreakWPF
             }
 
         }
+
+        private void Btn_alto_contraste_Click(object sender, RoutedEventArgs e)
+        {
+            
+
+             txt_rut_administracion.Background = Brushes.White;
+            lbl_Rut_Administracion.Foreground = Brushes.LightGreen;
+
+            txt_razon_social_administracion.Background = Brushes.White;
+            lbl_RazonSocial_Administracion.Foreground = Brushes.LightGreen;
+
+            txt_nombre_contacto_administracion.Background = Brushes.White;
+            lbl_Nombre_Administracion.Foreground = Brushes.LightGreen;
+
+            txt_mail_contacto_administracion.Background = Brushes.White;
+            lbl_Mail_Administracion.Foreground = Brushes.LightGreen;
+
+            txt_direccion_administracion.Background = Brushes.White;
+            lbl_Direccion_Administracion.Foreground = Brushes.LightGreen;
+
+            txt_telefono_administracion.Background = Brushes.White;
+            lbl_Telefono_Administracion.Foreground = Brushes.LightGreen;
+
+            cmb_actividad_administracion.Background = Brushes.White;
+            lbl_Actividad_Administracion.Foreground = Brushes.LightGreen;
+            cmb_tipo_administracion.Background = Brushes.White;
+            lbl_Tipo_Administracion.Foreground = Brushes.LightGreen;
+
+
+
+            btn_limpiar_administra.Background = Brushes.LightSlateGray;
+            btn_registrar_administracion.Background = Brushes.LightSlateGray;
+
+            btn_alto_contraste.Background = Brushes.LightSlateGray;
+
+            txt_buscar_cliente_administracion.Background = Brushes.White;
+            btn_buscar_cliente_administracion.Background = Brushes.LightSlateGray;
+
+            dg_filtros_administracion.Background = Brushes.White;
+
+            btn_actualizar_cliente_administracion.Background = Brushes.LightYellow;
+            btn_eliminar_cliente_administracion.Background = Brushes.OrangeRed;
+
+            gv_administracion.Background = Brushes.Black;
+            main_window.Background = Brushes.Black;
+            rec_regis_clien.Fill = Brushes.Black;
+
+           
+
+             lbl_tipo_empresa.Foreground = Brushes.LightGreen;
+
+            chk_spa_listado.BorderBrush = Brushes.LightGreen;
+            chk_spa_listado.Foreground = Brushes.LightGreen;
+
+            chk_eirl_listado.BorderBrush = Brushes.LightGreen;
+            chk_eirl_listado.Foreground = Brushes.LightGreen;
+
+            chk_limitada_listado.BorderBrush = Brushes.LightGreen;
+            chk_limitada_listado.Foreground = Brushes.LightGreen;
+
+            chk_sociedad_listado.BorderBrush = Brushes.LightGreen;
+            chk_sociedad_listado.Foreground = Brushes.LightGreen;
+
+            lbl_actividad_empresa.Foreground = Brushes.LightGreen;
+
+            chk_agropecuaria_listado.BorderBrush = Brushes.LightGreen;
+            chk_agropecuaria_listado.Foreground = Brushes.LightGreen;
+
+            chk_mineria_listado.BorderBrush = Brushes.LightGreen;
+            chk_mineria_listado.Foreground = Brushes.LightGreen;
+
+            chk_manufactura_listado.BorderBrush = Brushes.LightGreen;
+            chk_manufactura_listado.Foreground = Brushes.LightGreen;
+
+            chk_comercio_listado.BorderBrush = Brushes.LightGreen;
+            chk_comercio_listado.Foreground = Brushes.LightGreen;
+
+            chk_hoteleria_listado.BorderBrush = Brushes.LightGreen;
+            chk_hoteleria_listado.Foreground = Brushes.LightGreen;
+
+            chk_alimentos_listado.BorderBrush = Brushes.LightGreen;
+            chk_alimentos_listado.Foreground = Brushes.LightGreen;
+
+            chk_transporte_listado.BorderBrush = Brushes.LightGreen;
+            chk_transporte_listado.Foreground = Brushes.LightGreen;
+
+            chk_servicio_limitada.BorderBrush = Brushes.LightGreen;
+            chk_servicio_limitada.Foreground = Brushes.LightGreen;
+
+            //rec_listado_clientes.Fill = Brushes.Black;
+
+            txt_busqueda_listado.BorderBrush = Brushes.LightGreen;
+            txt_busqueda_listado.Background = Brushes.White;
+
+            btn_buscar_listado.Background = Brushes.LightSlateGray;
+            btn_buscar_listado.Foreground = Brushes.LightGreen;
+
+            dg_filtros_listado.Background = Brushes.LightSlateGray;
+
+            main_window.Background = Brushes.Black;
+
+
+            
+
+             lbl_rut_contrato_lis_cliente.Foreground = Brushes.LightGreen;
+
+            txt_rut_contrato_lis_contrato.Background = Brushes.White;
+
+            btn_rut_contrato_lis_contrato.Background = Brushes.LightSlateGray;
+            btn_rut_contrato_lis_contrato.Foreground = Brushes.LightGreen;
+
+            lbl_tipo_lis_contrato.Foreground = Brushes.LightGreen;
+
+            chk_tipo_a.Foreground = Brushes.LightGreen;
+            chk_tipo_a.Background = Brushes.White;
+
+            chk_tipo_b.Foreground = Brushes.LightGreen;
+            chk_tipo_b.Background = Brushes.White;
+
+            chk_tipo_c.Foreground = Brushes.LightGreen;
+            chk_tipo_c.Background = Brushes.White;
+
+            dg_filtros_lis_contrato.Background = Brushes.LightSlateGray;
+
+            rec_list_contra.Fill = Brushes.Black;
+
+            main_window.Background = Brushes.Black;
+
+           
+
+             rec_amd_contra.Fill = Brushes.Black;
+
+            main_window.Background = Brushes.Black;
+
+            lbl_n_contrato_adm_contrato_Copy1.Foreground = Brushes.LightGreen;
+            lbl_creacion_adm_contrato.Foreground = Brushes.LightGreen;
+            lbl_termino_adm_contrato.Foreground = Brushes.LightGreen;
+            lbl_creacion_adm_contrato_Copy.Foreground = Brushes.LightGreen;
+            lbl_creacion_adm_contrato_Copy1.Foreground = Brushes.LightGreen;
+            lbl_direccion_adm_contrato.Foreground = Brushes.LightGreen;
+            lbl_vigencia_adm_contrato.Foreground = Brushes.LightGreen;
+            lbl_tipo_adm_contrato.Foreground = Brushes.LightGreen;
+            lbl_observaciones_adm_contrato.Foreground = Brushes.LightGreen;
+            lbl_n_contrato_adm_contrato_Copy2.Foreground = Brushes.LightGreen;
+
+            txt_n_contrato_adm_contrato.Background = Brushes.White;
+            btn_generar_numero_contrato.Foreground = Brushes.LightGreen;
+            btn_generar_numero_contrato.Background = Brushes.White;
+
+            txt_direccion_adm_contrato.Background = Brushes.White;
+
+            chk_vigencia_adm_contrato.BorderBrush = Brushes.LightGreen;
+            chk_vigencia_adm_contrato.Foreground = Brushes.LightGreen;
+
+            btn_calcular_adm_contrato.Background = Brushes.LightSlateGray;
+            btn_calcular_adm_contrato.Foreground = Brushes.LightGreen;
+
+            txt_numero_evento_contrato.Background = Brushes.White;
+
+            txt_observaciones_adm_cotrato.Background = Brushes.White;
+
+            btn_limpiar_adm_contrato.Background = Brushes.LightSlateGray;
+            btn_registrar_adm_contrato.Background = Brushes.LightSlateGray;
+
+            txt_rut_contrato.Background = Brushes.White;
+            btn_agregar_cliente_contrato.Background = Brushes.LightSlateGray;
+            btn_agregar_cliente_contrato.Foreground = Brushes.LightGreen;
+
+            txt_buscar_adm_contrato.Background = Brushes.White;
+            btn_buscar_adm_contrato.Background = Brushes.LightSlateGray;
+            btn_buscar_adm_contrato.Foreground = Brushes.LightGreen;
+
+            dg_filtros_adm_contrato.Background = Brushes.White;
+
+            btn_actualizar_adm_contrato.Background = Brushes.LightYellow;
+            btn_terminar_contrato_adm_contrato.Background = Brushes.OrangeRed;
+        }
     }
 }
 
